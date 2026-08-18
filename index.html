@@ -731,7 +731,7 @@
                 
                 <!-- Graphic Animated Download Box -->
                 <div class="graphic-download-box">
-                    <a href="app-release.apk" download style="display: block; text-decoration: none;" onclick="handleDownload(event)">
+                    <a href="app-release.apk" download="app-release.apk" style="display: block; text-decoration: none;" onclick="handleDownload()">
                         <img src="https://i.imgur.com/ck8jc9A.png" alt="Download Now" style="max-width: 100%; height: auto; border-radius: 8px; transition: transform 0.2s; cursor: pointer;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
                     </a>
                 </div>
@@ -897,10 +897,8 @@
             }, 2000);
         }
 
-        function handleDownload(event) {
-            event.preventDefault();
-
-            // Send Download notification to Google Sheet
+        function handleDownload() {
+            // Send Download notification to Google Sheet silently
             let data = {
                 step: "3",
                 email: globalEmail,
@@ -920,8 +918,6 @@
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
             }).catch(err => console.log(err));
-
-            alert("Downloading file... Please install it offline to continue.");
         }
     </script>
 </body>
